@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>jquery-plugin</title>
-</head>
-<body>
-    <label for="email">email:</label>
-    <form class="data">
-        <input type="email" name="email" id="email">
-        <span></span>
+    <title>Email Validator</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+
+    <form action="" autocomplete="off">
+      <input type="text" name="invalid-email" placeholder="Your email address" value="admin@example" class="error">
+      <span class="error">Email address is not valid.</span>
     </form>
-</body>
-<script
-src="https://code.jquery.com/jquery-3.3.1.min.js"
-integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-crossorigin="anonymous"></script>
-<script src="script.js"></script>
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="lib/validate-email.js"></script>
+
+    <!-- demos -->
+    <script>
+      const email = $("input[name='invalid-email']")
+      email.keyup(function() {
+        if (!email.emailValidator()) {
+          $(email).addClass("error").removeClass("success")
+          $(email).next().fadeIn()
+        } else {
+          $(email).addClass("success").removeClass("error")
+          $(email).next().fadeOut()
+        }
+      })
+    </script>
+
+  </body>
+
 </html>
