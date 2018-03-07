@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Email Validator</title>
+  <link rel="icon" type="image/png" href="img/logo_e.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <form action="" autocomplete="off">
+    <input type="text" name="invalid-email" placeholder="Your email address" value="admin@example" class="error">
+    <span class="error blink">Email address is not valid.</span>
+  </form>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="lib/validate-email.js"></script>
+
+  <script>
+    var email = $("input[name='invalid-email']")
+    email.keyup(function() {
+      if (!email.emailValidator()) {
+        $(email).addClass("error").removeClass("success")
+        $(email).next().fadeIn()
+      } else {
+        $(email).addClass("success").removeClass("error")
+        $(email).next().fadeOut()
+      }
+    })
+  </script>
+</body>
+
+</html>
