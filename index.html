@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jquery Plugin Validation Email</title>
+    <style media="screen">
+      .email-wrong {
+        border:3px solid #ff0000
+      }
+      .email-right {
+        border:3px solid green
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" name="email" value="" class="" placeholder="Input Email" id="email">
+    <span style="color: red; display: none" id="err-alert">Email address is not valid</span>
+
+    <script
+			  src="/jquery.js"
+			  ></script>
+    <script src="/lib/validate-email.js"></script>
+    <script type="text/javascript">
+      $('#email').keyup(() => {
+        const email = $('#email').val();
+        if (email) {
+          if (validateEmail(email)) {
+            $('#email').attr('class','email-right');
+            $('#err-alert').hide();
+          } else {
+            $('#email').attr('class','email-wrong');
+            $('#err-alert').show();
+          }
+        } else {
+            $('#email').attr('class','');
+            $('#err-alert').hide();
+        }
+
+      })
+    </script>
+  </body>
+</html>
