@@ -7,12 +7,12 @@ $.fn.checkEmail = function() {
         if(value.match(regex) === null){
             $('#email').css('border','3px solid red')
             if(count === 0){
-                $('form').append(`<span id="error_message" style="color:red">Email address is not valid</span>`)
+                $("span").html(`email salah bosku!`).css("color","red")
             }
             count++
         }else{
             $('#email').css('border','3px solid green')
-            $('#error_message').remove()
+            $('span').remove()
                 count=0
         }
     })
