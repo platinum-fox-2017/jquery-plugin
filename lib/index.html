@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <div>
+        <h1>Login</h1>
+    </div>
+</head>
+<body>
+    <div>
+        <input type="text" name="email" id="email" value="">
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="../lib/validate-email.js"></script>
+    <script>
+        $(document).ready(function () {
+                $("#email").keyup(function () {
+                    if (validateEmail($('#email').val()) === true) {
+                        $("#email").css("border-color", "green");
+                    }else{
+                        $("#email").css("border-color", "red");
+                    }
+                });
+            });
+    </script>
+</html>
