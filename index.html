@@ -17,7 +17,6 @@
     <script type="text/javascript" src="/lib/validate-email.js"></script>
     <script>
         $("#email").keyup(function () {
-            console.log($("#email").val())
             if($("#email").validateEmail()){
                 $("input").css({"border-color":"green"})
             } else {
@@ -25,6 +24,5 @@
             }
         })
     </script>
-
 </body>
 </html>
