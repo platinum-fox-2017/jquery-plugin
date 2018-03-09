@@ -15,6 +15,16 @@
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/lib/validate-email.js"></script>
+    <script>
+        $("#email").keyup(function () {
+            console.log($("#email").val())
+            if($("#email").validateEmail()){
+                $("input").css({"border-color":"green"})
+            } else {
+                $("input").css({"border-color":"red"})
+            }
+        })
+    </script>
 
 </body>
 </html>
